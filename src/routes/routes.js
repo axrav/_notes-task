@@ -2,7 +2,6 @@ const router = require("express").Router();
 const {
   createNote,
   getNotes,
-  getNote,
   updateNote,
   deleteNote,
   getNoteById,
