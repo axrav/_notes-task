@@ -64,6 +64,8 @@ A simple Express.js application for managing notes. The app provides CRUD operat
 
 ## Usage
 
+All the routes are protected by Basic auth which can be specified via env
+
 ### API Endpoints
 
 - **GET /notes/getNotes**
