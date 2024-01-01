@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const basicAuth = require('express-basic-auth');
+const basicAuth = require("express-basic-auth");
 const morgan = require("morgan");
 const noteRouter = require("./routes/routes");
 const dotenv = require("dotenv");
@@ -29,8 +29,8 @@ notesApp.use(morgan("dev")); // log requests to the console (for dev)
 
 // basic auth middleware
 const basicAuthMiddleware = basicAuth({
-    users: JSON.parse(process.env.BASIC_AUTH_USERS) || {'user' : 'pass'}, // read users from .env // should be in format '{"username":"password","username2":"password2"}' // should only be used in dev environment, not an ideal way to store credentials
-    challenge: true, 
+  users: JSON.parse(process.env.BASIC_AUTH_USERS) || { user: "pass" }, // read users from .env // should be in format '{"username":"password","username2":"password2"}' // should only be used in dev environment, not an ideal way to store credentials
+  challenge: true,
 });
 
 // error handling middleware
