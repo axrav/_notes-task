@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: your-container-name
+    container_name: notes-app
     ports:
       - "3000:3000"
     restart: always
