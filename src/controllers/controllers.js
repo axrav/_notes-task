@@ -1,5 +1,4 @@
-const Note = require('../models/models');
-
+const Note = require("../models/models");
 
 // create a note
 exports.createNote = async (req, res, next) => {
@@ -8,7 +7,7 @@ exports.createNote = async (req, res, next) => {
 
     // Validate input
     if (!title || !content) {
-      return res.status(400).json({ error: 'Title and content are required' });
+      return res.status(400).json({ error: "Title and content are required" });
     }
 
     const newNote = new Note({ title, content });
@@ -37,14 +36,14 @@ exports.getNoteById = async (req, res, next) => {
 
     // Validate input
     if (!noteId) {
-      return res.status(400).json({ error: 'Note ID is required' });
+      return res.status(400).json({ error: "Note ID is required" });
     }
 
     const note = await Note.findById(noteId);
 
     // Check if note exists
     if (!note) {
-      return res.status(404).json({ error: 'Note not found' });
+      return res.status(404).json({ error: "Note not found" });
     }
 
     res.json(note);
@@ -61,18 +60,20 @@ exports.updateNote = async (req, res, next) => {
 
     // Validate input
     if (!noteId || !title || !content) {
-      return res.status(400).json({ error: 'Note ID, title, and content are required' });
+      return res
+        .status(400)
+        .json({ error: "Note ID, title, and content are required" });
     }
 
     const updatedNote = await Note.findByIdAndUpdate(
       noteId,
       { title, content, updatedAt: Date.now() },
-      { new: true }
+      { new: true },
     );
 
     // Check if note exists
     if (!updatedNote) {
-      return res.status(404).json({ error: 'Note not found' });
+      return res.status(404).json({ error: "Note not found" });
     }
 
     res.json(updatedNote);
@@ -88,17 +89,17 @@ exports.deleteNote = async (req, res, next) => {
 
     // Validate input
     if (!noteId) {
-      return res.status(400).json({ error: 'Note ID is required' });
+      return res.status(400).json({ error: "Note ID is required" });
     }
 
     const deletedNote = await Note.findByIdAndDelete(noteId);
 
     // Check if note exists
     if (!deletedNote) {
-      return res.status(404).json({ error: 'Note not found' });
+      return res.status(404).json({ error: "Note not found" });
     }
 
-    res.json({ message: 'Note deleted successfully' });
+    res.json({ message: "Note deleted successfully" });
   } catch (error) {
     next(error);
   }

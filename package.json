@@ -3,21 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
+  "type": "commonjs",
   "scripts": {
     "dev": "nodemon src/app.js",
-    "prod" : "node src/app.js"
+    "prod": "node src/app.js",
+    "test": "mocha tests/ --timeout 10000 --exit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "chai": "^5.0.0",
+    "chai-http": "^4.4.0",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.3",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "assert": "^2.1.0",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.2",
+    "supertest": "^6.3.3"
   }
 }

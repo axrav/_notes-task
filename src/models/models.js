@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const noteSchema = new mongoose.Schema({
   title: { type: String, required: true, maxLength: 255 },
@@ -7,6 +7,6 @@ const noteSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-const Note = mongoose.model('Note', noteSchema);
+const Note = mongoose.model("Note", noteSchema);
 
 module.exports = Note;

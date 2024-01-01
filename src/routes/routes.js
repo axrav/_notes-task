@@ -1,5 +1,12 @@
-const router = require('express').Router();
-const { createNote, getNotes, getNote, updateNote, deleteNote, getNoteById } = require('../controllers/controllers');
+const router = require("express").Router();
+const {
+  createNote,
+  getNotes,
+  getNote,
+  updateNote,
+  deleteNote,
+  getNoteById,
+} = require("../controllers/controllers");
 
 // routes for notes
 router.post("/createNote", createNote);
